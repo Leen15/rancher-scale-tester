@@ -40,7 +40,7 @@ $container = get_data("rancher-metadata/latest/self/container/name") ?: "ghost";
     <link href="https://getbootstrap.com/examples/cover/cover.css" rel="stylesheet">
     <style>
         body {
-            font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             font-size: 1rem;
             font-weight: 400;
             line-height: 1.5;

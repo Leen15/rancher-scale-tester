@@ -4,7 +4,7 @@ stages:
   - publishImageConfig:
       dockerfilePath: ./Dockerfile
       buildContext: .
-      tag: leen15/rancher-scale-tester-pipeline
+      tag: leen15/rancher-scale-tester-pipeline:${CICD_EXECUTION_SEQUENCE}
       pushRemote: true
       registry: index.docker.io
 - name: deploy

@@ -1,0 +1,14 @@
+stages:
+- name: build
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile
+      buildContext: .
+      tag: leen15/rancher-scale-tester-pipeline
+      pushRemote: true
+      registry: index.docker.io
+- name: deploy
+  steps:
+  - applyYamlConfig:
+      path: ./deployment.yaml
+timeout: 60

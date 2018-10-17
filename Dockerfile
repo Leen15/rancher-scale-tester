@@ -1,11 +1,10 @@
-FROM eboraas/apache-php
+FROM leen15/apache-php
 
 MAINTAINER Luca Mattivi <luca@smartdomotik.com>
 
-RUN apt-get update && apt-get install -yqq --force-yes php5-curl
+RUN apt-get update && apt-get install -yqq php-curl
 
-RUN rm /var/www/html/index.html
-COPY index.php /var/www/html/index.php
+COPY . /var/www/public/
 
 # Port to expose
 EXPOSE 80

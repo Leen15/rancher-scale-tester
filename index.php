@@ -70,7 +70,7 @@ if (getenv('K8S_POD'))
   <main role="main" class="inner cover">
     <h1 class="cover-heading">Hey, friend!</h1>
     <p class="lead">My name is <b><?php echo $container; ?></b>, <br/> part of
-        <b><?php echo $service; ?></b> service.</p>
+        <b><?php echo $service; ?></b>.</p>
     <p class="lead">
       <i>I'm alive thanks to <b><?php echo $host; ?></b>,<br/> that is hosting me.</i>
     </p>

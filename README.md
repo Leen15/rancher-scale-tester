@@ -13,31 +13,47 @@ If you want you can launch it in a different environment, but the webpage will n
 
 I used this container for a demonstration on how rancher works.
 
-Now you can use this image also with Kubernetes, passing infos with environment variables:
+----------------------------------------------------------------
+
+Now you can use this image also with *Kubernetes*, passing infos with environment variables:
 
 ```
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: scale-tester
 spec:
-  containers:
-    - name: scale-tester
-      image: leen15/rancher-scale-tester
-      env:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: scale-tester
+  template:
+    metadata:
+      labels:
+        app: scale-tester
+    spec:
+      containers:
+      - name: scale-tester
+        image: leen15/rancher-scale-tester
+        env:
         - name: K8S_NODE
           valueFrom:
             fieldRef:
+              apiVersion: v1
               fieldPath: spec.nodeName
         - name: K8S_POD
           valueFrom:
             fieldRef:
+              apiVersion: v1
               fieldPath: metadata.name
         - name: K8S_NAMESPACE
           valueFrom:
             fieldRef:
+              apiVersion: v1
               fieldPath: metadata.namespace
         - name: K8S_IP
           valueFrom:
             fieldRef:
+              apiVersion: v1
               fieldPath: status.podIP
-  restartPolicy: Never
   ```
